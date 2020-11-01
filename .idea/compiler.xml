@@ -7,15 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="artifact" />
+        <module name="expense-tracker" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="artifact" target="11" />
+      <module name="expense-tracker" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="artifact" options="-parameters" />
+      <module name="expense-tracker" options="-parameters" />
     </option>
   </component>
 </project>

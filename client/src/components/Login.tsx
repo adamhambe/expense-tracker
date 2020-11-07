@@ -1,6 +1,6 @@
-import React from 'react'
-import '../assets/sass/common.scss'
-import { Form, Input, Button, Checkbox } from 'antd';
+import React from "react";
+import "../assets/sass/common.scss";
+import { Form, Input, Button, Checkbox } from "antd";
 
 const layout = {
   labelCol: { span: 8 },
@@ -11,51 +11,70 @@ const tailLayout = {
 };
 
 const Login = () => {
-    const onFinish = (values: any) => {
-        console.log('Success:', values);
-      };
-    
-      const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
-      };
-    
+  const onFinish = (values: any) => {
+    console.log("Success:", values);
+  };
 
-    return (
-        <Form
-          {...layout}
-          name="basic"
-          initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-        >
-          <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
-          >
-            <Input />
-          </Form.Item>
-    
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
-          >
-            <Input.Password />
-          </Form.Item>
-    
-          <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-    
-          <Form.Item {...tailLayout}>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item>
-        </Form>
-      );
-}
+  const onFinishFailed = (errorInfo: any) => {
+    console.log("Failed:", errorInfo);
+  };
 
+  return (
+    <div>
+      <div className="sidenav">
+        <div className="login-main-text">
+          <h1>ExpenseTracker</h1>
+        </div>
+      </div>
+      <div className="main">
+        <div className="col-md-6 col-sm-12">
+          <div className="login-form">
+            <Form
+              {...layout}
+              name="basic"
+              initialValues={{ remember: true }}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+            >
+              <Form.Item
+                label="Username"
+                name="username"
+                rules={[
+                  { required: true, message: "Please input your username!" },
+                ]}
+              >
+                <Input />
+              </Form.Item>
 
-export default Login
+              <Form.Item
+                label="Password"
+                name="password"
+                rules={[
+                  { required: true, message: "Please input your password!" },
+                ]}
+              >
+                <Input.Password />
+              </Form.Item>
+
+              <Form.Item
+                {...tailLayout}
+                name="remember"
+                valuePropName="checked"
+              >
+                <Checkbox>Remember me</Checkbox>
+              </Form.Item>
+
+              <Form.Item {...tailLayout}>
+                <Button type="primary" htmlType="submit">
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

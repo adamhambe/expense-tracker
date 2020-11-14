@@ -1,12 +1,10 @@
 package com.app.expensetracker.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -17,6 +15,11 @@ public class Expense {
     @GeneratedValue
     private Long id;
 
-    private String expense;
+    private double amount;
     private String description;
+
+    @ManyToOne
+    @JsonIgnore
+    private Category category;
+
 }
